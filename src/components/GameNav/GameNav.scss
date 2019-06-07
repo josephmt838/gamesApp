@@ -1,0 +1,24 @@
+.game-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  padding: 0 10px;
+  margin: 0 auto;
+  min-height: 80px;
+  border-radius: 5px;
+
+  .message {
+    font-size: 48px;
+    margin: 0;
+  }
+  .user-tag {
+    font-weight: bold;
+  }
+
+  .points {
+    strong {
+      font-size: 24px;
+    }
+  }
+}

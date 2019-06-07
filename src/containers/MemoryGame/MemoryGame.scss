@@ -1,0 +1,14 @@
+.memory-game-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
+  height: 500px;
+  overflow: scroll;
+
+  .card {
+    width: 18%;
+    margin: 20px auto;
+  }
+}
