@@ -4,7 +4,9 @@ import Card from "../../components/Card/Card.component";
 import GameNav from "../../components/GameNav";
 import helpers from "../../helpers";
 const { initializeDeck } = helpers;
-const Game = ({ gameLevel }) => {
+
+const Game = ({ gameLevel, cardConfig, setGameStarted, username }) => {
+  const { cardCategory, cardBack } = cardConfig;
   const [flipped, setFlipped] = useState([]);
   const [cards, setCards] = useState([]);
   const [solved, setSolved] = useState([]);
@@ -16,7 +18,8 @@ const Game = ({ gameLevel }) => {
 
   useEffect(() => {
     setStartTime(Date.now());
-    setCards(initializeDeck(gameLevel));
+    setCards(initializeDeck(gameLevel, cardCategory));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameLevel]);
   const getRercordTime = (endTime) => {
     let time = (endTime - startTime) / 1000;
@@ -44,7 +47,7 @@ const Game = ({ gameLevel }) => {
     }
   };
   const isMatch = (id) => {
-    if (cards[id].type.pokemon === cards[flipped[0]].type.pokemon) {
+    if (cards[id].type.type === cards[flipped[0]].type.type) {
       const newPoints = points + 1;
       setMessage(`\u{1F44D} Great Job!!!! \u{1F44D}`);
       setPoints(newPoints);
@@ -68,7 +71,11 @@ const Game = ({ gameLevel }) => {
   };
   return (
     <Fragment>
-      <GameNav points={points} message={message || resultTime} />
+      <GameNav
+        points={points}
+        message={message || resultTime}
+        username={username}
+      />
       <div className="memory-game-cards">
         {cards &&
           cards.length &&
@@ -76,24 +83,24 @@ const Game = ({ gameLevel }) => {
             const { id } = card;
             return (
               <Card
-                key={`${id}-${cards[id].type.pokemon}`}
+                key={`${id}-${cards[id].type.type}`}
                 id={id}
                 width={"90%"}
-                height={"75%"}
-                back={"./assets/MemoryGame/cardLists/pokemon/pokecoin.svg"}
-                front={`./assets/MemoryGame/cardLists/pokemon/${
-                  cards[id].type.pokemon
+                height={"60%"}
+                back={`./assets/MemoryGame/cardLists/${cardCategory}/${cardBack}`}
+                front={`./assets/MemoryGame/cardLists/${cardCategory}/${
+                  cards[id].type.type
                 }.svg`}
                 flipped={flipped.includes(id)}
                 handleClick={handleClick}
                 disabled={disabled}
-                title={cards[id].type.pokemon}
+                title={cards[id].type.type}
                 solved={solved.includes(id)}
               />
             );
           })}
       </div>
-      <p>{}</p>
+      <button onClick={() => setGameStarted(false)}>Start New Game</button>
     </Fragment>
   );
 };

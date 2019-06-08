@@ -1,5 +1,3 @@
-import pokemon from "./containers/MemoryGame/pokemon";
-
 const helpers = {
   shuffleDeck: (deck) => {
     const arr = [...deck];
@@ -12,9 +10,10 @@ const helpers = {
     }
     return arr;
   },
-  initializeDeck: (cardAmount) => {
+  initializeDeck: (cardAmount, cardCategory) => {
     let id = 0;
-    let cards = pokemon;
+    let cards = require(`./assets/cards/${cardCategory}`);
+    cards = cards.default;
     cards = helpers.shuffleDeck(cards);
     cards = cards.reduce((acc, type) => {
       if (id < cardAmount * 2) {
@@ -31,6 +30,11 @@ const helpers = {
       return acc;
     }, []);
     return helpers.shuffleDeck(cards);
+  },
+  checkGameStart: (username, cardCategory) => {
+    return username && username.length && cardCategory && cardCategory.length
+      ? true
+      : false;
   }
 };
 

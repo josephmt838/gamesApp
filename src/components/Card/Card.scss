@@ -16,4 +16,10 @@
   h3 {
     margin: 0;
   }
+  .flipper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

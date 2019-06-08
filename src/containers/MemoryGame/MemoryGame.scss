@@ -20,3 +20,70 @@
     }
   }
 }
+.rules-list {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  .game-config {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+    }
+  }
+  .game-btns {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+    button,
+    a {
+      width: 300px;
+      font-size: 36px;
+      box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      text-decoration: none;
+      border: 1px solid lightgray;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  ul {
+    font-size: 24px;
+
+    li {
+      list-style-type: none;
+    }
+  }
+  h3 {
+    font-size: 48px;
+  }
+  h3,
+  ul {
+    text-align: center;
+  }
+  .category-select,
+  input {
+    font-size: 36px;
+    width: 300px;
+    margin: 20px auto;
+    padding: 3px 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+}
