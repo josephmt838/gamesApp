@@ -6,9 +6,17 @@
   margin: 0 auto;
   height: 500px;
   overflow: scroll;
+  background-image: url("../../assets/images/background_stadium.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .card {
     width: 18%;
     margin: 20px auto;
+    background-color: rgba($color: navy, $alpha: 0.3);
+
+    &:hover {
+      background-color: rgba($color: lightblue, $alpha: 0.5);
+    }
   }
 }
