@@ -230,6 +230,8 @@ const players = [
 ];
 const playerRotation = [2, 3, 1];
 const currentPlayer = 1;
+const askedCard = "king_of_diamonds.svg";
+const playerAsked = 2;
 const actions = {
   shuffleCards: (deck, rounds) => {
     let i = 0;
@@ -297,7 +299,19 @@ const actions = {
   getCurrentPlayer: () => {
     return currentPlayer;
   },
-  hasMatch: (players) => {},
+  hasMatch: (players, askedCard, playerAsked, currentPlayer) => {
+    let hasMatch = false;
+    players.map((p) => {
+      if (p.id === playerAsked) {
+        p.hand.map((opponentCard) => {
+          if (opponentCard.image === askedCard) {
+            hasMatch = true;
+          }
+        });
+      }
+    });
+    return hasMatch;
+  },
   nextPlayer: () => {
     const indexOfCurrentPlayer = playerRotation.indexOf(currentPlayer);
     let currPlayer;
@@ -334,7 +348,7 @@ const actions = {
 // shuffle cards
 // console.log("Round *******", actions.shuffleCards(cards, 5), "End ROund ****");
 // deal a hand of cards for go fish
-console.log(actions.dealCards(players, cards));
+actions.dealCards(players, cards);
 // console.log(players[1]);
 // console.log(actions.removeCardFromHand(2, "King of Diamonds", players));
 // actions.givePlayerPoints(1, players);
@@ -344,7 +358,7 @@ console.log(actions.dealCards(players, cards));
 // console.log(actions.getCurrentPlayer());
 // console.log(actions.getWinner(players));
 // console.log(actions.getHandLength(5, players));
-
+console.log(actions.hasMatch(players, askedCard, playerAsked, currentPlayer));
 // draw a single card
 // console.log(actions.drawCard(1, cards, players));
 // export default actions;
