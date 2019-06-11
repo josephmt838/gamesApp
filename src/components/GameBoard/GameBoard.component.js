@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 
 import "./GameBoard.scss";
 
-const GameBoard = ({ children }) => {
-  return <section className="game-board">{children}</section>;
+const GameBoard = ({ children, classes }) => {
+  return <section className={`game-board ${classes}`}>{children}</section>;
 };
 
 GameBoard.propTypes = {
-  childre: PropTypes.node
+  childre: PropTypes.node,
+  classes: PropTypes.string
 };
 
 export default GameBoard;

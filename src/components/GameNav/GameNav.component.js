@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import "./GameNav.scss";
 
 const GameNav = ({ points, message, username }) => {

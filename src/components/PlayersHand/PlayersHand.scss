@@ -1,0 +1,52 @@
+.gofish-board {
+  position: relative;
+}
+
+.player-decks {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-between;
+  .cpu-hand {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+
+    .cpu-card {
+      width: 60px;
+      border: 1px solid gray;
+      margin: 3px;
+      align-self: center;
+    }
+  }
+
+  .human-hand {
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin: 20px;
+    height: auto;
+    min-height: 200px;
+
+    .human-card {
+      align-self: center;
+      border: 1px solid gray;
+      border-radius: 3px;
+      width: 100px;
+      margin-left: -70px;
+      &:hover {
+        position: relative;
+        border-color: gray;
+        box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.75);
+        top: -10px;
+      }
+    }
+  }
+}
+.remaining-deck {
+  position: absolute;
+  top: 300px;
+  right: 20px;
+}
