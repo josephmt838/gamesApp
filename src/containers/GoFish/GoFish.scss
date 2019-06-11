@@ -6,3 +6,19 @@
 .no-draw {
   text-decoration: line-through;
 }
+
+.selected-cards {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  img {
+    width: 120px;
+  }
+  .blank-card {
+    width: 120px;
+    height: 174px;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 5px;
+  }
+}

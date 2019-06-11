@@ -270,7 +270,7 @@ const actions = {
         player.hand = [...player.hand, deck[deck.length - 1]];
         deck.splice(deck.length - 1, 1);
       }
-      //   console.log(player.hand);
+      if (!deck) return null;
     });
     return { players, deck };
   },
@@ -305,7 +305,10 @@ const actions = {
     players.forEach((p) => {
       if (p.id === playerAsked) {
         p.hand.map((opponentCard) => {
-          if (opponentCard.image.charAt(0) === askedCard.charAt(0)) {
+          if (
+            opponentCard.image.charAt(0).toLowerCase() ===
+            askedCard.charAt(0).toLowerCase()
+          ) {
             hasMatch = true;
             matches = [opponentCard.title, askedCard];
             return hasMatch;
@@ -321,9 +324,9 @@ const actions = {
     let currPlayer;
     if (indexOfCurrentPlayer !== -1) {
       if (indexOfCurrentPlayer === playerRotation.length - 1) {
-        currPlayer = 0;
+        currPlayer = playerRotation[0];
       } else {
-        currPlayer = indexOfCurrentPlayer + 1;
+        currPlayer = playerRotation[indexOfCurrentPlayer + 1];
       }
     }
     return { currentPlayer: currPlayer };
@@ -362,10 +365,10 @@ const actions = {
     hand.map((card) => cardArr.push(card.image.charAt(0)));
     cardArr.map((card, i) => {
       for (let j in hand) {
+        if (hasHandMatch) return null;
         if (card === cardArr[j] && i != j) {
           hasHandMatch = true;
           matches = [hand[i], hand[j]];
-          continue;
         }
       }
     });
