@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameBoard Component Renders GameBoard component 1`] = `
+<section
+  className="game-board testing-jest"
+  data-testid="classes"
+/>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component Renders Card component 1`] = `
+<div
+  className="card flipped"
+  onClick={[Function]}
+>
+  <div
+    className="flipper"
+  >
+    <img
+      alt="card"
+      style={
+        Object {
+          "height": "140px",
+          "width": "100px",
+        }
+      }
+    />
+    <h3>
+      Testing Card
+    </h3>
+  </div>
+</div>
+`;

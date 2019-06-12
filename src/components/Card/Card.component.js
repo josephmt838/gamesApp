@@ -56,7 +56,8 @@ Card.propTypes = {
   front: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  title: PropTypes.string
 };
 
 export default Card;
