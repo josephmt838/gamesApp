@@ -255,7 +255,7 @@ const actions = {
       let rounds = 5;
       // deal 5 cards to each player
       while (rounds > 0) {
-        players.forEach((player) => {
+        players.map((player) => {
           player.hand.push(newDeck[newDeck.length - 1]);
           newDeck.splice(newDeck.length - 1, 1);
         });
@@ -348,7 +348,6 @@ const actions = {
         handLength = p.hand.length;
         return handLength;
       }
-      handLength = -1;
       return handLength;
     });
     return handLength;
